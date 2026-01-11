@@ -11,7 +11,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= VIDEO CONTAINERS ================= */
+/* ================= VIDEOS ================= */
 .video-desktop,
 .video-mobile {
   position: fixed;
@@ -26,20 +26,18 @@ body {
   object-fit: cover;
 }
 
-/* Default: desktop ON, mobile OFF */
 .video-mobile {
   display: none;
 }
 
-/* Overlay */
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0,0,0,0.65);
   z-index: -1;
 }
 
-/* ================= INTRO VIDEO ================= */
+/* ================= INTRO ================= */
 .intro-video {
   width: 100vw;
   height: 100vh;
@@ -51,7 +49,7 @@ body {
   object-fit: cover;
 }
 
-/* ================= NAVBAR ================= */
+/* ================= NAVBAR (DESKTOP) ================= */
 .navbar {
   position: fixed;
   top: 18px;
@@ -60,7 +58,6 @@ body {
   justify-content: center;
   gap: 24px;
   z-index: 10;
-  padding: 0 12px;
 }
 
 .navbar a {
@@ -70,13 +67,6 @@ body {
   border-radius: 30px;
   border: 1px solid rgba(255,255,255,0.4);
   backdrop-filter: blur(6px);
-  transition: 0.3s;
-  white-space: nowrap;
-}
-
-.navbar a:hover {
-  background: white;
-  color: black;
 }
 
 .navbar a.active {
@@ -85,19 +75,58 @@ body {
   font-weight: 600;
 }
 
+/* ================= HAMBURGER (MOBILE) ================= */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.hamburger div {
+  width: 26px;
+  height: 3px;
+  background: white;
+  margin: 5px 0;
+}
+
+/* ================= MOBILE MENU ================= */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  height: 100%;
+  background: rgba(0,0,0,0.95);
+  z-index: 30;
+  padding: 80px 30px;
+  transition: 0.4s ease;
+}
+
+.mobile-menu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.mobile-menu.show {
+  left: 0;
+}
+
 /* ================= CONTENT ================= */
 .content {
-  position: relative;
-  z-index: 1;
   max-width: 1100px;
   margin: auto;
-  padding: 120px 20px 60px;
+  padding: 120px 20px 80px;
   text-align: center;
 }
 
 h1 {
   font-size: 36px;
-  letter-spacing: 2px;
   text-shadow: 0 0 15px rgba(255,255,255,0.3);
 }
 
@@ -105,8 +134,6 @@ p {
   margin-top: 15px;
   font-size: 18px;
   line-height: 1.6;
-  color: #f1f1f1;
-  text-shadow: 0 0 8px rgba(0,0,0,0.8);
 }
 
 /* ================= EVENTS ================= */
@@ -121,16 +148,8 @@ p {
   padding: 20px;
   background: rgba(255,255,255,0.1);
   border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(8px);
   text-decoration: none;
   color: white;
-  transition: 0.3s;
-}
-
-.events a:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-5px);
 }
 
 /* ================= FORM ================= */
@@ -146,24 +165,32 @@ input, textarea, button {
   padding: 12px;
   border-radius: 10px;
   border: none;
-  font-size: 16px;
 }
 
 button {
   background: white;
   color: black;
-  cursor: pointer;
 }
 
-/* ================= UTIL ================= */
-.hidden {
-  display: none;
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  opacity: 0.7;
 }
 
-/* ================= MOBILE MODE ================= */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
-  /* Switch videos */
+  .navbar {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
   .video-desktop {
     display: none;
   }
@@ -172,32 +199,11 @@ button {
     display: block;
   }
 
-  /* Navbar mobile-friendly */
-  .navbar {
-    justify-content: flex-start;
-    overflow-x: auto;
-    gap: 14px;
-  }
-
-  .navbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Content scaling */
-  .content {
-    padding: 100px 16px 40px;
-  }
-
   h1 {
     font-size: 28px;
   }
 
   p {
     font-size: 15px;
-  }
-
-  .events {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 16px;
   }
 }
