@@ -19,20 +19,27 @@
 <!-- INTRO VIDEO -->
 <div class="intro-video">
   <video id="introVideo" autoplay muted playsinline>
-    <source src="assets/intro.mp4">
+    <source src="assets/intro-desktop.mp4" media="(min-width: 769px)">
+    <source src="assets/intro-mobile.mp4" media="(max-width: 768px)">
   </video>
-
-  <!-- SKIP INTRO (MOBILE FRIENDLY) -->
   <button id="skipIntro" class="skip-btn">Skip</button>
 </div>
 
-<!-- BACKGROUND VIDEO -->
-<div class="bg-video hidden" id="bgVideo">
+<!-- BACKGROUND VIDEO DESKTOP -->
+<div class="video-desktop hidden" id="bgDesktop">
   <video autoplay muted loop playsinline>
-    <source src="assets/intro.mp4">
+    <source src="assets/intro-desktop.mp4">
   </video>
-  <div class="overlay"></div>
 </div>
+
+<!-- BACKGROUND VIDEO MOBILE -->
+<div class="video-mobile hidden" id="bgMobile">
+  <video autoplay muted loop playsinline>
+    <source src="assets/intro-mobile.mp4">
+  </video>
+</div>
+
+<div class="overlay"></div>
 
 <script src="script.js"></script>
 </body>
