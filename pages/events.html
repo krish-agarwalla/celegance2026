@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Events</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -14,16 +15,22 @@
   <a href="contact.html">Contact</a>
 </div>
 
-<div class="bg-video">
-  <video autoplay muted loop>
-    <source src="../assets/intro.mp4">
+<div class="video-desktop">
+  <video autoplay muted loop playsinline>
+    <source src="../assets/intro-desktop.mp4">
   </video>
-  <div class="overlay"></div>
 </div>
+
+<div class="video-mobile">
+  <video autoplay muted loop playsinline>
+    <source src="../assets/intro-mobile.mp4">
+  </video>
+</div>
+
+<div class="overlay"></div>
 
 <div class="content">
   <h1>Events</h1>
-
   <div class="events">
     <a href="https://forms.gle/XXXXX">Dancing Feet</a>
     <a href="https://forms.gle/XXXXX">Khatron Ke Khiladi</a>
