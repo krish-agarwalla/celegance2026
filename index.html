@@ -7,39 +7,47 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- DESKTOP NAV -->
 <div class="navbar">
   <a href="index.html" class="active">Home</a>
-  <a href="pages/events.html">Events</a>
   <a href="pages/about.html">About Us</a>
-  <a href="pages/team.html">Our Team</a>
+  <a href="pages/team.html">Team</a>
   <a href="pages/contact.html">Contact</a>
 </div>
 
-<!-- INTRO VIDEO -->
-<div class="intro-video">
-  <video id="introVideo" autoplay muted playsinline>
-    <source src="assets/intro-desktop.mp4" media="(min-width: 769px)">
-    <source src="assets/intro-mobile.mp4" media="(max-width: 768px)">
-  </video>
-  <button id="skipIntro" class="skip-btn">Skip</button>
+<!-- MOBILE NAV -->
+<div class="hamburger" id="hamburger">
+  <div></div><div></div><div></div>
 </div>
 
-<!-- BACKGROUND VIDEO DESKTOP -->
-<div class="video-desktop hidden" id="bgDesktop">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="pages/about.html">About Us</a>
+  <a href="pages/team.html">Team</a>
+  <a href="pages/contact.html">Contact</a>
+</div>
+
+<!-- VIDEOS -->
+<div class="video-desktop">
   <video autoplay muted loop playsinline>
     <source src="assets/intro-desktop.mp4">
   </video>
 </div>
 
-<!-- BACKGROUND VIDEO MOBILE -->
-<div class="video-mobile hidden" id="bgMobile">
+<div class="video-mobile">
   <video autoplay muted loop playsinline>
     <source src="assets/intro-mobile.mp4">
   </video>
 </div>
 
 <div class="overlay"></div>
+
+<div class="content">
+  <h1>Celegance 2026</h1>
+  <p>The Annual Cultural Fest of CV Raman Global University</p>
+</div>
+
+<footer>© Celegance 2026</footer>
 
 <script src="script.js"></script>
 </body>
