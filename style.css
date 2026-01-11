@@ -11,22 +11,29 @@ body {
   overflow-x: hidden;
 }
 
-/* ================= BACKGROUND VIDEO ================= */
-.bg-video {
+/* ================= VIDEO CONTAINERS ================= */
+.video-desktop,
+.video-mobile {
   position: fixed;
   inset: 0;
   z-index: -2;
 }
 
-.bg-video video {
+.video-desktop video,
+.video-mobile video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.2;
 }
 
+/* Default: desktop ON, mobile OFF */
+.video-mobile {
+  display: none;
+}
+
+/* Overlay */
 .overlay {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.65);
   z-index: -1;
@@ -36,7 +43,6 @@ body {
 .intro-video {
   width: 100vw;
   height: 100vh;
-  position: relative;
 }
 
 .intro-video video {
@@ -48,27 +54,24 @@ body {
 /* ================= NAVBAR ================= */
 .navbar {
   position: fixed;
-  top: 15px;
-  left: 0;
-  right: 0;
+  top: 18px;
+  width: 100%;
   display: flex;
   justify-content: center;
-  gap: 18px;
+  gap: 24px;
   z-index: 10;
-  padding: 0 10px;
-  flex-wrap: nowrap;
+  padding: 0 12px;
 }
 
 .navbar a {
-  white-space: nowrap;
   color: white;
   text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 25px;
+  padding: 10px 18px;
+  border-radius: 30px;
   border: 1px solid rgba(255,255,255,0.4);
   backdrop-filter: blur(6px);
-  font-size: 15px;
-  transition: 0.3s ease;
+  transition: 0.3s;
+  white-space: nowrap;
 }
 
 .navbar a:hover {
@@ -88,19 +91,19 @@ body {
   z-index: 1;
   max-width: 1100px;
   margin: auto;
-  padding: 110px 16px 60px;
+  padding: 120px 20px 60px;
   text-align: center;
 }
 
 h1 {
-  font-size: 32px;
-  letter-spacing: 1.5px;
+  font-size: 36px;
+  letter-spacing: 2px;
   text-shadow: 0 0 15px rgba(255,255,255,0.3);
 }
 
 p {
-  margin-top: 14px;
-  font-size: 16px;
+  margin-top: 15px;
+  font-size: 18px;
   line-height: 1.6;
   color: #f1f1f1;
   text-shadow: 0 0 8px rgba(0,0,0,0.8);
@@ -109,42 +112,41 @@ p {
 /* ================= EVENTS ================= */
 .events {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 16px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
 }
 
 .events a {
-  padding: 16px;
+  padding: 20px;
   background: rgba(255,255,255,0.1);
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
   text-decoration: none;
   color: white;
-  font-size: 15px;
-  transition: 0.3s ease;
+  transition: 0.3s;
 }
 
 .events a:hover {
   background: rgba(255,255,255,0.2);
-  transform: translateY(-3px);
+  transform: translateY(-5px);
 }
 
 /* ================= FORM ================= */
 form {
-  max-width: 360px;
-  margin: 30px auto;
+  max-width: 400px;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 15px;
 }
 
 input, textarea, button {
   padding: 12px;
   border-radius: 10px;
   border: none;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 button {
@@ -153,47 +155,49 @@ button {
   cursor: pointer;
 }
 
-/* ================= SKIP INTRO BUTTON ================= */
-.skip-btn {
-  position: absolute;
-  bottom: 30px;
-  right: 20px;
-  padding: 10px 16px;
-  background: rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.4);
-  color: white;
-  border-radius: 20px;
-  font-size: 14px;
-  z-index: 20;
-}
-
 /* ================= UTIL ================= */
 .hidden {
   display: none;
 }
 
-/* ================= MOBILE FIXES ================= */
+/* ================= MOBILE MODE ================= */
 @media (max-width: 768px) {
 
+  /* Switch videos */
+  .video-desktop {
+    display: none;
+  }
+
+  .video-mobile {
+    display: block;
+  }
+
+  /* Navbar mobile-friendly */
   .navbar {
     justify-content: flex-start;
     overflow-x: auto;
-    scrollbar-width: none;
+    gap: 14px;
   }
 
   .navbar::-webkit-scrollbar {
     display: none;
   }
 
-  .bg-video video {
-    opacity: 0.15;
+  /* Content scaling */
+  .content {
+    padding: 100px 16px 40px;
   }
 
   h1 {
-    font-size: 26px;
+    font-size: 28px;
   }
 
   p {
     font-size: 15px;
+  }
+
+  .events {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
   }
 }
