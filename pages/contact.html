@@ -7,6 +7,7 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
 <div class="navbar">
   <a href="../index.html">Home</a>
   <a href="events.html">Events</a>
@@ -15,18 +16,19 @@
   <a href="contact.html" class="active">Contact</a>
 </div>
 
+<!-- MOBILE NAV -->
 <div class="hamburger" id="hamburger">
   <div></div><div></div><div></div>
 </div>
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="../index.html">Home</a>
-  <a href="events.html">Events</a>
   <a href="about.html">About Us</a>
   <a href="team.html">Team</a>
   <a href="contact.html">Contact</a>
 </div>
 
+<!-- VIDEOS -->
 <div class="video-desktop">
   <video autoplay muted loop>
     <source src="../assets/intro-desktop.mp4">
@@ -41,6 +43,7 @@
 
 <div class="overlay"></div>
 
+<!-- CONTENT -->
 <div class="content">
   <h1>Contact for Sponsorship</h1>
 
@@ -49,13 +52,23 @@
     Contact: +91 XXXX XXXX XX
   </p>
 
-  <form action="https://formsubmit.co/celegance2026@gmail.com" method="POST">
+  <form action="https://formsubmit.co/celegance2026@gmail.com"
+        method="POST"
+        onsubmit="showToast()">
+
     <input type="hidden" name="_captcha" value="false">
+
     <input type="text" name="Company Name" placeholder="Company Name" required>
     <input type="email" name="Email" placeholder="Email" required>
     <textarea name="Message" rows="5" placeholder="Message" required></textarea>
+
     <button type="submit">Send</button>
   </form>
+</div>
+
+<!-- TOAST -->
+<div id="toast" class="toast">
+  Thank you for contacting. Our team will reach you out soon.
 </div>
 
 <footer>© Celegance 2026</footer>
