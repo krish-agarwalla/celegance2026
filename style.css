@@ -10,6 +10,12 @@ body {
   background: black;
   color: white;
   overflow-x: hidden;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+body.loaded {
+  opacity: 1;
 }
 
 /* ===== VIDEOS ===== */
@@ -86,12 +92,16 @@ body {
   position: fixed;
   top: 0;
   left: -100%;
-  width: 70%;
+  width: 75%;
   height: 100%;
   background: rgba(0,0,0,0.95);
   z-index: 30;
-  padding: 80px 30px;
+  padding: 70px 30px;
   transition: 0.4s ease;
+}
+
+.mobile-menu.show {
+  left: 0;
 }
 
 .mobile-menu a {
@@ -99,11 +109,15 @@ body {
   color: white;
   text-decoration: none;
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
-.mobile-menu.show {
-  left: 0;
+.mobile-menu .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 26px;
+  cursor: pointer;
 }
 
 /* ===== CONTENT ===== */
@@ -123,6 +137,28 @@ p {
   margin-top: 15px;
   font-size: 18px;
   line-height: 1.6;
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.countdown div {
+  background: rgba(255,255,255,0.1);
+  padding: 14px 18px;
+  border-radius: 12px;
+  min-width: 90px;
+}
+
+.countdown span {
+  display: block;
+  font-size: 26px;
+  font-weight: bold;
 }
 
 /* ===== EVENTS ===== */
@@ -162,7 +198,7 @@ button {
   cursor: pointer;
 }
 
-/* ===== TOAST MESSAGE ===== */
+/* ===== TOAST ===== */
 .toast {
   position: fixed;
   bottom: 20px;
@@ -184,34 +220,24 @@ button {
 /* ===== FOOTER ===== */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 25px 15px;
   font-size: 14px;
-  opacity: 0.7;
+  opacity: 0.8;
+}
+
+footer a {
+  color: white;
+  margin: 0 6px;
+  text-decoration: underline;
 }
 
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
-  .navbar {
-    display: none;
-  }
+  .navbar { display: none; }
+  .hamburger { display: block; }
+  .video-desktop { display: none; }
+  .video-mobile { display: block; }
 
-  .hamburger {
-    display: block;
-  }
-
-  .video-desktop {
-    display: none;
-  }
-
-  .video-mobile {
-    display: block;
-  }
-
-  h1 {
-    font-size: 28px;
-  }
-
-  p {
-    font-size: 15px;
-  }
+  h1 { font-size: 28px; }
+  p { font-size: 15px; }
 }
