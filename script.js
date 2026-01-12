@@ -21,15 +21,16 @@ function showToast() {
 
   setTimeout(() => {
     toast.classList.remove("show");
+    window.location.href = "contact.html"; // redirect after 8s
   }, 8000);
 }
 
-/* ================= CONTACT FORM (AJAX SUBMIT) ================= */
+/* ================= FORM SUBMIT (CONTROLLED) ================= */
 const contactForm = document.getElementById("contactForm");
 
 if (contactForm) {
   contactForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // ❌ STOP PAGE REDIRECT
+    e.preventDefault(); // stop default redirect
 
     const formData = new FormData(contactForm);
 
@@ -40,7 +41,7 @@ if (contactForm) {
     .then(response => {
       if (response.ok) {
         showToast();
-        contactForm.reset(); // clear form
+        contactForm.reset();
       } else {
         alert("Something went wrong. Please try again.");
       }
